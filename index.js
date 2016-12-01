@@ -3,8 +3,6 @@ import { render } from 'react-dom'
 import {createStore} from 'redux'
 import clone from 'clone'
 import Main from './components/main'
-import Login from './components/login'
-import Signup from './components/signup'
 import Balance from './components/balance'
 const reducer = require('./reducer')
 
@@ -13,16 +11,13 @@ var app = document.createElement('div')
 main.appendChild(app)
 
 const initialState = {
-  users: [
-    {
-      id: 1,
-      username: 'ron',
-      password: 'ronwins',
-      pin: 1234,
-      accountNumber: '123456-1234567-00',
-      balance: 100.1
-    }],
-  isLoggedin: false
+  id: 1,
+  username: 'ron',
+  password: 'ronwins',
+  pin: 1234,
+  accountNumber: '123456-1234567-00',
+  balance: 100.1,
+  isLoggedin: true
 }
 
 const store = createStore(reducer, initialState)
@@ -34,8 +29,7 @@ store.subscribe( () => {
   render(
     <div>
     <Main state={state}/>
-    <Login name="Login" state={state}/>
-    <Signup name="Signup" state={state}/>
+    <Balance name="balance" state={state}/>
     </div>,
     main)
 
