@@ -16,7 +16,7 @@ const initialState = {
   password: 'ronwins',
   pin: 1234,
   accountNumber: '123456-1234567-00',
-  balance: 100.1,
+  balance: 100.1
 }
 
 const store = createStore(reducer, initialState)
